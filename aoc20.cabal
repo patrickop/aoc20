@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a0b258c0f9f0dcce5b7bfa718c3f27c269450fe81002dc744ae9e173fbde9a82
+-- hash: f91d2376e9e98a17d81ded3a8af798aca05719f8bbd4372e08ba3ea1296e019b
 
 name:           aoc20
 version:        0.1.0.0
@@ -23,6 +23,7 @@ source-repository head
 
 library
   exposed-modules:
+      Analysing
       Lib
       Parsing
   other-modules:
@@ -32,6 +33,7 @@ library
   build-depends:
       HUnit
     , base >=4.7 && <5
+    , sort
   default-language: Haskell2010
 
 executable day1
@@ -45,6 +47,7 @@ executable day1
       HUnit
     , aoc20
     , base >=4.7 && <5
+    , sort
   default-language: Haskell2010
 
 test-suite aoc20-test
@@ -59,4 +62,5 @@ test-suite aoc20-test
       HUnit
     , aoc20
     , base >=4.7 && <5
+    , sort
   default-language: Haskell2010
