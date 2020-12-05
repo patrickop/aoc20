@@ -6,9 +6,7 @@ author:              "Author name here"
 maintainer:          "example@example.com"
 copyright:           "2020 Author name here"
 
-extra-source-files:
-- README.md
-- ChangeLog.md
+# extra-source-files:
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -26,8 +24,8 @@ library:
   source-dirs: src
 
 executables:
-  aoc20-exe:
-    main:                Main.hs
+  day1:
+    main:                Day1.hs
     source-dirs:         app
     ghc-options:
     - -threaded

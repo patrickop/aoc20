@@ -4,22 +4,18 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 06d640a6c165b7cde4d8633694a47fdcdbdaf8f0ab5f7521c3cb3b7b59e1d374
+-- hash: 96886d3e2b5f953fe20812efa643da049b6475ebc06fe781caf1236a5a7817ee
 
 name:           aoc20
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/patrickop/aoc20#readme>
 homepage:       https://github.com/patrickop/aoc20#readme
 bug-reports:    https://github.com/patrickop/aoc20/issues
-author:         Patrick
+author:         Author name here
 maintainer:     example@example.com
-copyright:      2020 Patrick
+copyright:      2020 Author name here
 license:        BSD3
-license-file:   LICENSE
 build-type:     Simple
-extra-source-files:
-    README.md
-    ChangeLog.md
 
 source-repository head
   type: git
@@ -36,8 +32,8 @@ library
       base >=4.7 && <5
   default-language: Haskell2010
 
-executable aoc20-exe
-  main-is: Main.hs
+executable day1
+  main-is: Day1.hs
   other-modules:
       Paths_aoc20
   hs-source-dirs:
