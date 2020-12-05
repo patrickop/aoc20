@@ -21,13 +21,15 @@ dependencies:
 - base >= 4.7 && < 5
 - HUnit
 - sort
+- split
+- regex-pcre
 
 library:
   source-dirs: src
 
 executables:
-  day1:
-    main:                Day1.hs
+  solve:
+    main:                Main.hs
     source-dirs:         app
     ghc-options:
     - -threaded
