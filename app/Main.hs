@@ -7,7 +7,7 @@ import Types
 
 day1 :: IO ()
 day1 = do
-  numbers <- parseIntsFile "data/day1/input.txt"
+  numbers <- parseIntsFile "data/day1.txt"
   let t1 = duos numbers
   let t2 = triples numbers
   let combinationT1 = findCombosThatAddTo t1 2020
@@ -19,7 +19,7 @@ day1 = do
 
 day2 :: IO ()
 day2 = do
-  policies <- parseFileLines "data/day2/input.txt"
+  policies <- parseFileLines "data/day2.txt"
   let validOld = countIf verifyPolicy policies
   let validNew = countIf verifyPolicyNew policies
   putStrLn ("Valid policies(old): " ++ (show validOld))
@@ -27,7 +27,7 @@ day2 = do
 
 day3 :: IO ()
 day3 = do
-  tmap <- parseTreeMap "data/day3/input.txt"
+  tmap <- parseTreeMap "data/day3.txt"
   putStrLn
     ("Encountered trees 3/1 slope " ++
      (show (countSledLocsOnTree tmap (Slope 3 1))))
