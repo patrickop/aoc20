@@ -124,3 +124,7 @@ validatePassportField ("cid",_) = True
 validatePassport :: [(String, String)] -> Bool
 validatePassport passport = all (== True) $ map validatePassportField passport
 
+valueOrDefault :: (Maybe a) -> a -> a
+valueOrDefault (Just x) _ = x
+valueOrDefault Nothing d = d
+

@@ -7,6 +7,6 @@ To build, test and run:
 stack setup
 stack build
 stack test
-stack dayx # for example stack day1
+stack dayx # for example stack day1A
 ```
 
