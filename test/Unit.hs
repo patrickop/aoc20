@@ -1,4 +1,5 @@
 module Unit where
+
 import Analysing
 import Data.Sort
 import Parsing
@@ -103,55 +104,88 @@ testParsePassportDB :: Test
 testParsePassportDB =
   TestCase
     (do ps <- parsePassportDB "data/test/passports.txt"
-        let ex_ps = [[("ecl","gry"),("pid","860033327"),("eyr","2020"),("hcl","#fffffd"),("byr","1937"),("iyr","2017"),("cid","147"),("hgt","183cm")],[("iyr","2013"),("ecl","amb"),("cid","350"),("eyr","2023"),("pid","028048884"),("hcl","#cfa07d"),("byr","1929")],[("hcl","#ae17e1"),("iyr","2013"),("eyr","2024"),("ecl","brn"),("pid","760753108"),("byr","1931"),("hgt","179cm")],[("hcl","#cfa07d"),("eyr","2025"),("pid","166559648"),("iyr","2011"),("ecl","brn"),("hgt","59in")]]
-        assertEqual "parses passport db" ex_ps ps
-      )
+        let ex_ps =
+              [ [ ("ecl", "gry")
+                , ("pid", "860033327")
+                , ("eyr", "2020")
+                , ("hcl", "#fffffd")
+                , ("byr", "1937")
+                , ("iyr", "2017")
+                , ("cid", "147")
+                , ("hgt", "183cm")
+                ]
+              , [ ("iyr", "2013")
+                , ("ecl", "amb")
+                , ("cid", "350")
+                , ("eyr", "2023")
+                , ("pid", "028048884")
+                , ("hcl", "#cfa07d")
+                , ("byr", "1929")
+                ]
+              , [ ("hcl", "#ae17e1")
+                , ("iyr", "2013")
+                , ("eyr", "2024")
+                , ("ecl", "brn")
+                , ("pid", "760753108")
+                , ("byr", "1931")
+                , ("hgt", "179cm")
+                ]
+              , [ ("hcl", "#cfa07d")
+                , ("eyr", "2025")
+                , ("pid", "166559648")
+                , ("iyr", "2011")
+                , ("ecl", "brn")
+                , ("hgt", "59in")
+                ]
+              ]
+        assertEqual "parses passport db" ex_ps ps)
 
 testValidatePassportField :: Test
 testValidatePassportField =
   TestCase
-    (do 
-        assertEqual "parses byr" True (validatePassportField ("byr", "2002"))
+    (do assertEqual "parses byr" True (validatePassportField ("byr", "2002"))
         assertEqual "parses byr" False (validatePassportField ("byr", "2003"))
         assertEqual "parses hgt" True (validatePassportField ("hgt", "60in"))
         assertEqual "parses hgt" True (validatePassportField ("hgt", "190cm"))
         assertEqual "parses hgt" False (validatePassportField ("hgt", "190in"))
         assertEqual "parses hgt" False (validatePassportField ("hgt", "190"))
         assertEqual "parses hcl" True (validatePassportField ("hcl", "#123abc"))
-        assertEqual "parses hcl" False (validatePassportField ("hcl", "#123abz"))
+        assertEqual
+          "parses hcl"
+          False
+          (validatePassportField ("hcl", "#123abz"))
         assertEqual "parses hcl" False (validatePassportField ("hcl", "123abc"))
         assertEqual "parses ecl" True (validatePassportField ("ecl", "brn"))
         assertEqual "parses ecl" False (validatePassportField ("ecl", "wat"))
-        assertEqual "parses pid" True (validatePassportField ("pid", "000000001"))
-        assertEqual "parses pid" False (validatePassportField ("pid", "0123456789"))
-
-      )
+        assertEqual
+          "parses pid"
+          True
+          (validatePassportField ("pid", "000000001"))
+        assertEqual
+          "parses pid"
+          False
+          (validatePassportField ("pid", "0123456789")))
 
 testParseSeatNumber :: Test
 testParseSeatNumber =
   TestCase
-    (do 
-        assertEqual "parses seat number" 567 (parseSeatNumber "BFFFBBFRRR")
+    (do assertEqual "parses seat number" 567 (parseSeatNumber "BFFFBBFRRR")
         assertEqual "parses seat number" 119 (parseSeatNumber "FFFBBBFRRR")
-        assertEqual "parses seat number" 820 (parseSeatNumber "BBFFBBFRLL")
-      )
+        assertEqual "parses seat number" 820 (parseSeatNumber "BBFFBBFRLL"))
+
 testParseGroupChoices :: Test
 testParseGroupChoices =
   TestCase
-    (do 
-      choices <- parseGroupChoices "data/test/day6A.txt"
-      let ex_choices = ["abc", "abc", "abc", "a", "b"]
-      assertEqual "parses group choices" ex_choices choices
-      )
+    (do choices <- parseGroupChoices "data/test/day6A.txt"
+        let ex_choices = ["abc", "abc", "abc", "a", "b"]
+        assertEqual "parses group choices" ex_choices choices)
 
 testParseGroupChoicesByAll :: Test
 testParseGroupChoicesByAll =
   TestCase
-    (do 
-      choices <- parseGroupChoicesByAll "data/test/day6A.txt"
-      let ex_choices = ["abc", "", "a", "a", "b"]
-      assertEqual "parses group choices by all" ex_choices choices
-      )
+    (do choices <- parseGroupChoicesByAll "data/test/day6A.txt"
+        let ex_choices = ["abc", "", "a", "a", "b"]
+        assertEqual "parses group choices by all" ex_choices choices)
 
 unitTests :: Test
 unitTests =

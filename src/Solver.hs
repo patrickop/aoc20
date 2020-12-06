@@ -1,8 +1,9 @@
 module Solver where
-import Parsing
+
 import Analysing
-import Types
 import Data.List
+import Parsing
+import Types
 
 day1A :: String -> IO Int
 day1A filename = do
@@ -53,7 +54,8 @@ day4A filename = do
 day4B :: String -> IO Int
 day4B filename = do
   passports <- parsePassportDB filename
-  let validCt = countIf (\x -> (hasRequiredFields x) && (validatePassport x)) passports
+  let validCt =
+        countIf (\x -> (hasRequiredFields x) && (validatePassport x)) passports
   return validCt
 
 day5A :: String -> IO Int
@@ -69,16 +71,15 @@ day5B filename = do
   let seatnrs = map parseSeatNumber nrs
   let max = maximum $ seatnrs
   let min = minimum $ seatnrs
-  let mynr = find (isMySeat seatnrs) [min..max]
+  let mynr = find (isMySeat seatnrs) [min .. max]
   return (valueOrDefault mynr (-1))
 
 day6A :: String -> IO Int
-day6A  filename =  do
+day6A filename = do
   choices <- parseGroupChoices filename
   return $ foldl (+) 0 $ map length choices
 
 day6B :: String -> IO Int
-day6B  filename =  do
+day6B filename = do
   choices <- parseGroupChoicesByAll filename
   return $ foldl (+) 0 $ map length choices
-
