@@ -1,6 +1,8 @@
 module Parsing where
 
 import Types
+import Data.List.Split
+import Data.List
 
 addone :: Int -> Int
 addone x = x + 1
@@ -31,3 +33,37 @@ parseTreeMap name = do
   let width = length (lineList !! 0)
   let trees = parseTreeLocs (Location 0 0) lineList
   return (TreeMap width depth trees)
+
+combineUnseperatedLines :: [String] -> [String]
+combineUnseperatedLines ls = 
+  let entries = splitWhen (=="") ls
+  in  map (intercalate " ") entries
+
+parseKeyValue :: String -> (String, String)
+parseKeyValue s =
+  let elems = splitOn ":" s
+   in (elems !! 0, elems !! 1)
+
+parsePassport :: String -> [(String, String)]
+parsePassport s = map parseKeyValue $ filter (/= "") $ splitOn " " s
+
+parsePassportDB :: String -> IO [[(String, String)]]
+parsePassportDB filename = do
+  ls <- parseFileLines filename
+  return $ map parsePassport $ combineUnseperatedLines ls
+
+parseSeatNumberDigit :: Char -> Int
+parseSeatNumberDigit 'F' = 0
+parseSeatNumberDigit 'B' = 1
+parseSeatNumberDigit 'R' = 1
+parseSeatNumberDigit 'L' = 0
+
+parseSeatNumber :: String -> Int
+parseSeatNumber (c:s) = (parseSeatNumberDigit c) * (2 ^ (length s))  + (parseSeatNumber s)
+parseSeatNumber _ = 0
+
+isMySeat :: [Int] -> Int -> Bool
+isMySeat others candidate = 
+  let l = candidate-1
+      r = candidate+1
+  in (elem l others) && (elem r others) && (not (elem candidate others))

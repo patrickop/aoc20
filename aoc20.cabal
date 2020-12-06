@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c53259c94d52122a4e3086b6faf922795755db3323c2059466bab8f5981b5bba
+-- hash: 47ea02fcd58837a72a3bbb11c27928a08bda26b95fb4078fdf551713a357c417
 
 name:           aoc20
 version:        0.1.0.0
@@ -34,6 +34,7 @@ library
   build-depends:
       HUnit
     , base >=4.7 && <5
+    , containers
     , regex-pcre
     , sort
     , split
@@ -50,6 +51,7 @@ executable solve
       HUnit
     , aoc20
     , base >=4.7 && <5
+    , containers
     , regex-pcre
     , sort
     , split
@@ -67,6 +69,7 @@ test-suite aoc20-test
       HUnit
     , aoc20
     , base >=4.7 && <5
+    , containers
     , regex-pcre
     , sort
     , split

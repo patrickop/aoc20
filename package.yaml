@@ -23,6 +23,7 @@ dependencies:
 - sort
 - split
 - regex-pcre
+- containers
 
 library:
   source-dirs: src
