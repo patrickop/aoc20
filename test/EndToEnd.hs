@@ -76,16 +76,18 @@ test6B =
         assertEqual "Day 6B EndToEnd failed" 6 r)
 
 endToEndTests :: Test
-endToEndTests = TestList 
-  [ TestLabel "test1A" test1A
-  , TestLabel "test1B" test1B
-  , TestLabel "test2A" test2A
-  , TestLabel "test2B" test2B
-  , TestLabel "test3A" test3A
-  , TestLabel "test3B" test3B
-  , TestLabel "test4A" test4A
-  , TestLabel "test4B" test4B
-  , TestLabel "test5A" test5A
-  , TestLabel "test5B" test5B
-  , TestLabel "test6A" test6A
-  , TestLabel "test6B" test6B]
+endToEndTests =
+  TestList
+    [ TestLabel "test1A" test1A
+    , TestLabel "test1B" test1B
+    , TestLabel "test2A" test2A
+    , TestLabel "test2B" test2B
+    , TestLabel "test3A" test3A
+    , TestLabel "test3B" test3B
+    , TestLabel "test4A" test4A
+    , TestLabel "test4B" test4B
+    , TestLabel "test5A" test5A
+    , TestLabel "test5B" test5B
+    , TestLabel "test6A" test6A
+    , TestLabel "test6B" test6B
+    ]
