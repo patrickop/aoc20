@@ -128,3 +128,11 @@ valueOrDefault :: (Maybe a) -> a -> a
 valueOrDefault (Just x) _ = x
 valueOrDefault Nothing d = d
 
+isMySeat :: [Int] -> Int -> Bool
+isMySeat others candidate = 
+  let l = candidate-1
+      r = candidate+1
+  in (elem l others) && (elem r others) && (not (elem candidate others))
+
+-- day 6
+

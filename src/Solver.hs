@@ -74,11 +74,11 @@ day5B filename = do
 
 day6A :: String -> IO Int
 day6A  filename =  do
-  ls <- parseFileLines filename
-  return 0
+  choices <- parseGroupChoices filename
+  return $ foldl (+) 0 $ map length choices
 
 day6B :: String -> IO Int
 day6B  filename =  do
-  ls <- parseFileLines filename
-  return 0
+  choices <- parseGroupChoicesByAll filename
+  return $ foldl (+) 0 $ map length choices
 

@@ -135,6 +135,23 @@ testParseSeatNumber =
         assertEqual "parses seat number" 119 (parseSeatNumber "FFFBBBFRRR")
         assertEqual "parses seat number" 820 (parseSeatNumber "BBFFBBFRLL")
       )
+testParseGroupChoices :: Test
+testParseGroupChoices =
+  TestCase
+    (do 
+      choices <- parseGroupChoices "data/test/day6A.txt"
+      let ex_choices = ["abc", "abc", "abc", "a", "b"]
+      assertEqual "parses group choices" ex_choices choices
+      )
+
+testParseGroupChoicesByAll :: Test
+testParseGroupChoicesByAll =
+  TestCase
+    (do 
+      choices <- parseGroupChoicesByAll "data/test/day6A.txt"
+      let ex_choices = ["abc", "", "a", "a", "b"]
+      assertEqual "parses group choices by all" ex_choices choices
+      )
 
 unitTests :: Test
 unitTests =
@@ -152,5 +169,7 @@ unitTests =
     , TestLabel "testParsePassportDB" testParsePassportDB
     , TestLabel "testValidatePassportField" testValidatePassportField
     , TestLabel "testParseSeatNumber" testParseSeatNumber
+    , TestLabel "testParseGroupChoices" testParseGroupChoices
+    , TestLabel "testParseGroupChoicesByAll" testParseGroupChoicesByAll
     , TestLabel "testFindNumbersThatAddTo" testFindNumbersThatAddTo
     ]

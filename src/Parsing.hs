@@ -62,8 +62,25 @@ parseSeatNumber :: String -> Int
 parseSeatNumber (c:s) = (parseSeatNumberDigit c) * (2 ^ (length s))  + (parseSeatNumber s)
 parseSeatNumber _ = 0
 
-isMySeat :: [Int] -> Int -> Bool
-isMySeat others candidate = 
-  let l = candidate-1
-      r = candidate+1
-  in (elem l others) && (elem r others) && (not (elem candidate others))
+parseGroupChoices :: String -> IO [[Char]]
+parseGroupChoices filename = (do
+    ls <- parseFileLines filename
+    let entries = splitWhen (=="") ls
+    return $ map nub $ map concat entries
+  )
+
+isChosenByAll :: [String] -> Char -> Bool
+isChosenByAll group question = all (elem question) group
+
+getGroupChoicesByAll :: [String] -> [Char]
+getGroupChoicesByAll group = 
+  let allQuestions = nub $ concat group
+  in  filter (isChosenByAll group) allQuestions
+
+parseGroupChoicesByAll :: String -> IO [[Char]]
+parseGroupChoicesByAll filename = (do
+    ls <- parseFileLines filename
+    let groups = splitWhen (=="") ls
+    return $ map getGroupChoicesByAll groups
+  )
+
