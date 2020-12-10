@@ -2,6 +2,7 @@ module Solver where
 
 import Analysing
 import Data.List
+import qualified Data.Map as M
 import Parsing
 import Types
 
@@ -83,3 +84,16 @@ day6B :: String -> IO Int
 day6B filename = do
   choices <- parseGroupChoicesByAll filename
   return $ foldl (+) 0 $ map length choices
+
+day7A :: String -> IO Int
+day7A filename = do
+  rules <- parseAllBagRules filename
+  let simpleRules = M.map (map snd) rules
+  let colors = M.keys simpleRules
+  let goldContained = map (containsBagOfColor "shinygold" simpleRules) colors
+  return $ countIf (== True) goldContained
+
+day7B :: String -> IO Int
+day7B filename = do
+  rules <- parseAllBagRules filename
+  return $ countAllBags rules "shinygold"

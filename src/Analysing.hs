@@ -2,6 +2,8 @@ module Analysing where
 
 import Data.List
 import Data.List.Split
+import Data.Map (Map)
+import qualified Data.Map as M
 import Text.Regex.PCRE
 import Types
 
@@ -134,4 +136,24 @@ isMySeat others candidate =
   let l = candidate - 1
       r = candidate + 1
    in (elem l others) && (elem r others) && (not (elem candidate others))
--- day 6
+
+-- day 7
+lookupOrEmpty :: Ord a => a -> Map a [b] -> [b]
+lookupOrEmpty key m
+  | Just val <- M.lookup key m = val
+  | otherwise = []
+
+containsBagOfColor :: String -> Map String [String] -> String -> Bool
+containsBagOfColor target rules original =
+  let contents = lookupOrEmpty original rules
+   in (elem target contents) ||
+      (any (== True) $ map (containsBagOfColor target rules) contents)
+
+countAllBags :: Map String [(Int, String)] -> String -> Int
+countAllBags rules bag =
+  let contents = lookupOrEmpty bag rules
+      direct = foldr (+) 0 $ map fst contents
+      children =
+        foldr (+) 0 $
+        map (\x -> ((fst x) * (countAllBags rules (snd x)))) contents
+   in direct + children

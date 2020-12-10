@@ -75,6 +75,18 @@ test6B =
     (do r <- day6B "data/test/day6A.txt"
         assertEqual "Day 6B EndToEnd failed" 6 r)
 
+test7A :: Test
+test7A =
+  TestCase
+    (do r <- day7A "data/test/day7.txt"
+        assertEqual "Day 7A EndToEnd failed" 4 r)
+
+test7B :: Test
+test7B =
+  TestCase
+    (do r <- day7B "data/test/day7.txt"
+        assertEqual "Day 7B EndToEnd failed" 32 r)
+
 endToEndTests :: Test
 endToEndTests =
   TestList
@@ -90,4 +102,6 @@ endToEndTests =
     , TestLabel "test5B" test5B
     , TestLabel "test6A" test6A
     , TestLabel "test6B" test6B
+    , TestLabel "test7A" test7A
+    , TestLabel "test7B" test7B
     ]

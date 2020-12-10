@@ -2,6 +2,7 @@ module Parsing where
 
 import Data.List
 import Data.List.Split
+import Data.Map (Map, fromList)
 import Types
 
 addone :: Int -> Int
@@ -82,3 +83,20 @@ parseGroupChoicesByAll filename =
   (do ls <- parseFileLines filename
       let groups = splitWhen (== "") ls
       return $ map getGroupChoicesByAll groups)
+
+parseBagContents :: [String] -> [(Int, String)]
+parseBagContents (count:adj:color:measure:xs) =
+  ((read count), (concat [adj, color])) : parseBagContents xs
+parseBagContents ["no", "other", "bags."] = []
+parseBagContents [] = []
+
+parseBagRule :: String -> (String, [(Int, String)])
+parseBagRule rule =
+  let label = concat $ take 2 $ splitOn " " rule
+      contents = parseBagContents $ drop 4 $ splitOn " " rule
+   in (label, contents)
+
+parseAllBagRules :: String -> IO (Map String [(Int, String)])
+parseAllBagRules filename =
+  (do ls <- parseFileLines filename
+      return $ fromList $ map parseBagRule ls)

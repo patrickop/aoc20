@@ -40,6 +40,12 @@ solve "day6A" = do
 solve "day6B" = do
   result <- day6B "data/day6.txt"
   putStrLn $ show $ result
+solve "day7A" = do
+  result <- day7A "data/day7.txt"
+  putStrLn $ show $ result
+solve "day7B" = do
+  result <- day7B "data/day7.txt"
+  putStrLn $ show $ result
 solve s = putStrLn (s ++ " Not solved")
 
 main :: IO ()

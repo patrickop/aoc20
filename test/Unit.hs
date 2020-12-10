@@ -187,6 +187,18 @@ testParseGroupChoicesByAll =
         let ex_choices = ["abc", "", "a", "a", "b"]
         assertEqual "parses group choices by all" ex_choices choices)
 
+testParsesBagRule :: Test
+testParsesBagRule =
+  TestCase
+    (do let contents =
+              parseBagRule
+                "light red bags contain 1 bright white bag, 2 muted yellow bags."
+        let ex_contents = ("lightred", [(1, "brightwhite"), (2, "mutedyellow")])
+        assertEqual "parses contents" ex_contents contents
+        let contents1 = parseBagRule "light red bags contain no other bags."
+        let ex_contents1 = ("lightred", [])
+        assertEqual "parses contents" ex_contents1 contents1)
+
 unitTests :: Test
 unitTests =
   TestList
@@ -206,4 +218,5 @@ unitTests =
     , TestLabel "testParseGroupChoices" testParseGroupChoices
     , TestLabel "testParseGroupChoicesByAll" testParseGroupChoicesByAll
     , TestLabel "testFindNumbersThatAddTo" testFindNumbersThatAddTo
+    , TestLabel "testParsesBagRule" testParsesBagRule
     ]
