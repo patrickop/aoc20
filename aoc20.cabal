@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5aa2ce3a847cb442e138dfa27297d00c380540cc02718511c010ecf29991a4b1
+-- hash: 6ab9444c7040f6a12cff73471c4811f0c6faf587d820fb45b3296dbbca9fd596
 
 name:           aoc20
 version:        0.1.0.0
@@ -23,11 +23,15 @@ source-repository head
 
 library
   exposed-modules:
-      Analysing
+      Common
+      Day1
+      Day2
+      Day3
+      Day4
+      Day5
+      Day6
+      Day7
       Lib
-      Parsing
-      Solver
-      Types
   other-modules:
       Paths_aoc20
   hs-source-dirs:
@@ -62,8 +66,14 @@ test-suite aoc20-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      EndToEnd
-      Unit
+      TestCommon
+      TestDay1
+      TestDay2
+      TestDay3
+      TestDay4
+      TestDay5
+      TestDay6
+      TestDay7
       Paths_aoc20
   hs-source-dirs:
       test
