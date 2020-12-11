@@ -1,7 +1,9 @@
-module TestDay7 (tests) where
+module TestDay7
+  ( tests
+  ) where
 
-import Test.HUnit
 import Day7
+import Test.HUnit
 
 testA :: Test
 testA =
@@ -27,12 +29,10 @@ testParsesBagRule =
         let ex_contents1 = ("lightred", [])
         assertEqual "parses contents" ex_contents1 contents1)
 
-
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "testA" testA
+    [ TestLabel "testA" testA
     , TestLabel "testB" testB
     , TestLabel "testParsesBagRule" testParsesBagRule
     ]

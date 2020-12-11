@@ -1,4 +1,5 @@
 module Day2 where
+
 import Common
 import Text.Regex.PCRE
 
@@ -50,4 +51,3 @@ b filename = do
   policies <- parseFileLines filename
   let validOld = countIf verifyPolicyNew policies
   return validOld
-

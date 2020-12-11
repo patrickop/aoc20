@@ -1,4 +1,5 @@
 module Day3 where
+
 import Common
 
 data Location =
@@ -66,4 +67,3 @@ b filename = do
   let slopes = [(Slope 1 1), (Slope 3 1), (Slope 5 1), (Slope 7 1), (Slope 1 2)]
   let counts = map (\slope -> countSledLocsOnTree tmap slope) slopes
   return $ product counts
-

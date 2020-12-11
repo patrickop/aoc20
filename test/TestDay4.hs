@@ -1,7 +1,9 @@
-module TestDay4 (tests) where
+module TestDay4
+  ( tests
+  ) where
 
-import Test.HUnit
 import Day4
+import Test.HUnit
 
 testParsePassportDB :: Test
 testParsePassportDB =
@@ -81,12 +83,10 @@ testB =
     (do r <- b "data/test/day4B.txt"
         assertEqual "Day 4B EndToEnd failed" 4 r)
 
-
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "testA" testA
+    [ TestLabel "testA" testA
     , TestLabel "testB" testB
     , TestLabel "testParsePassportDB" testParsePassportDB
     , TestLabel "testValidatePassportField" testValidatePassportField

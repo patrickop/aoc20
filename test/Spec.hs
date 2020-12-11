@@ -12,8 +12,7 @@ import Test.HUnit
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "Common" TestCommon.tests
+    [ TestLabel "Common" TestCommon.tests
     , TestLabel "Day1" TestDay1.tests
     , TestLabel "Day2" TestDay2.tests
     , TestLabel "Day3" TestDay3.tests

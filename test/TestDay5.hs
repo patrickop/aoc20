@@ -1,7 +1,9 @@
-module TestDay5 (tests) where
+module TestDay5
+  ( tests
+  ) where
 
-import Test.HUnit
 import Day5
+import Test.HUnit
 
 testA :: Test
 testA =
@@ -22,12 +24,10 @@ testParseSeatNumber =
         assertEqual "parses seat number" 119 (parseSeatNumber "FFFBBBFRRR")
         assertEqual "parses seat number" 820 (parseSeatNumber "BBFFBBFRLL"))
 
-
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "testA" testA
+    [ TestLabel "testA" testA
     , TestLabel "testB" testB
     , TestLabel "testParseSeatNumber" testParseSeatNumber
     ]

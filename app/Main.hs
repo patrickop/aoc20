@@ -1,6 +1,5 @@
 module Main where
 
-import System.Environment
 import qualified Day1 as D1
 import qualified Day2 as D2
 import qualified Day3 as D3
@@ -8,6 +7,7 @@ import qualified Day4 as D4
 import qualified Day5 as D5
 import qualified Day6 as D6
 import qualified Day7 as D7
+import System.Environment
 
 solve :: String -> IO ()
 solve "day1A" = do

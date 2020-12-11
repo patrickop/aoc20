@@ -1,7 +1,9 @@
-module TestCommon (tests) where
+module TestCommon
+  ( tests
+  ) where
 
-import Test.HUnit
 import Common
+import Test.HUnit
 
 testParseLines :: Test
 testParseLines =
@@ -13,8 +15,4 @@ testParseLines =
           result)
 
 tests :: Test
-tests =
-  TestList
-    [ 
-      TestLabel "parseLines" testParseLines
-    ]
+tests = TestList [TestLabel "parseLines" testParseLines]

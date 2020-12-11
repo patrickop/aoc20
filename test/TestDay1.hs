@@ -1,8 +1,10 @@
-module TestDay1 (tests) where
+module TestDay1
+  ( tests
+  ) where
 
-import Test.HUnit
-import Day1
 import Data.List
+import Day1
+import Test.HUnit
 
 testParseInts :: Test
 testParseInts =
@@ -12,7 +14,6 @@ testParseInts =
           "parses file with one int per row"
           [1721, 979, 366, 299, 675, 1456]
           result)
-
 
 testDuos :: Test
 testDuos =
@@ -49,7 +50,6 @@ testB =
   TestCase
     (do r <- b "data/test/day1.txt"
         assertEqual "Day 1B EndToEnd failed" 241861950 r)
-
 
 tests :: Test
 tests =

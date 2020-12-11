@@ -1,4 +1,5 @@
 module Day5 where
+
 import Common
 import Data.List
 
@@ -38,4 +39,3 @@ b filename = do
   let min = minimum $ seatnrs
   let mynr = find (isMySeat seatnrs) [min .. max]
   return (valueOrDefault mynr (-1))
-

@@ -1,8 +1,10 @@
-module TestDay3 (tests) where
+module TestDay3
+  ( tests
+  ) where
 
-import Test.HUnit
-import Day3
 import Data.List
+import Day3
+import Test.HUnit
 
 testA :: Test
 testA =
@@ -34,12 +36,10 @@ testParseTreeMap =
         assertEqual "parses width" 6 (width tmap)
         assertEqual "parses depth" 4 (depth tmap))
 
-
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "testA" testA
+    [ TestLabel "testA" testA
     , TestLabel "testB" testB
     , TestLabel "testParseTreeMap" testParseTreeMap
     ]

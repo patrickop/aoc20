@@ -1,4 +1,5 @@
 module Day4 where
+
 import Common
 import Data.List
 import Data.List.Split
@@ -70,4 +71,3 @@ b filename = do
   let validCt =
         countIf (\x -> (hasRequiredFields x) && (validatePassport x)) passports
   return validCt
-

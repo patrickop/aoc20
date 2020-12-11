@@ -1,7 +1,9 @@
-module TestDay2 (tests) where
+module TestDay2
+  ( tests
+  ) where
 
-import Test.HUnit
 import Day2
+import Test.HUnit
 
 testPolicyCharacter :: Test
 testPolicyCharacter =
@@ -35,7 +37,6 @@ testPolicyMatchingChars =
        (2)
        (policyMatchingChars "1-3 a: abcdea"))
 
-
 testA :: Test
 testA =
   TestCase
@@ -48,12 +49,10 @@ testB =
     (do r <- b "data/test/day2.txt"
         assertEqual "Day 2B EndToEnd failed" 1 r)
 
-
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "testA" testA
+    [ TestLabel "testA" testA
     , TestLabel "testB" testB
     , TestLabel "testPolicyCharacter" testPolicyCharacter
     , TestLabel "testPolicyMin" testPolicyMin

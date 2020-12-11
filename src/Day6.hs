@@ -1,4 +1,5 @@
 module Day6 where
+
 import Common
 import Data.List
 import Data.List.Split
@@ -32,4 +33,3 @@ b :: String -> IO Int
 b filename = do
   choices <- parseGroupChoicesByAll filename
   return $ foldl (+) 0 $ map length choices
-

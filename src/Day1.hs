@@ -27,7 +27,6 @@ findCombosThatAddTo list goal = head' (filter (addUpTo goal) list)
 multiply' :: Maybe [Int] -> Int
 multiply' (Just xs) = product xs
 
-
 a :: String -> IO Int
 a filename = do
   numbers <- parseIntsFile filename
@@ -43,5 +42,3 @@ b filename = do
   let combination = findCombosThatAddTo t 2020
   let result = multiply' combination
   return result
-
-

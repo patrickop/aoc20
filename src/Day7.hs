@@ -1,7 +1,8 @@
 module Day7 where
-import qualified Data.Map as M
+
 import Common
 import Data.List.Split
+import qualified Data.Map as M
 
 parseBagContents :: [String] -> [(Int, String)]
 parseBagContents (count:adj:color:measure:xs) =
@@ -19,6 +20,7 @@ parseAllBagRules :: String -> IO (M.Map String [(Int, String)])
 parseAllBagRules filename =
   (do ls <- parseFileLines filename
       return $ M.fromList $ map parseBagRule ls)
+
 lookupOrEmpty :: Ord a => a -> M.Map a [b] -> [b]
 lookupOrEmpty key m
   | Just val <- M.lookup key m = val
@@ -38,6 +40,7 @@ countAllBags rules bag =
         foldr (+) 0 $
         map (\x -> ((fst x) * (countAllBags rules (snd x)))) contents
    in direct + children
+
 a :: String -> IO Int
 a filename = do
   rules <- parseAllBagRules filename

@@ -1,7 +1,9 @@
-module TestDay6 (tests) where
+module TestDay6
+  ( tests
+  ) where
 
-import Test.HUnit
 import Day6
+import Test.HUnit
 
 testA :: Test
 testA =
@@ -32,8 +34,7 @@ testParseGroupChoicesByAll =
 tests :: Test
 tests =
   TestList
-    [ 
-      TestLabel "testA" testA
+    [ TestLabel "testA" testA
     , TestLabel "testB" testB
     , TestLabel "testParseGroupChoices" testParseGroupChoices
     , TestLabel "testParseGroupChoicesByAll" testParseGroupChoicesByAll
