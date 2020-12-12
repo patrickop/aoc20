@@ -47,11 +47,11 @@ b filename = do
 EOF
 
 # Add test cases to spec
-sed -i "s|import Test.HUnit|import qualified TestDay8\nimport Test.HUnit|"
+sed test/Spec.hs -i "s|import Test.HUnit|import qualified TestDay8\nimport Test.HUnit|"
 sed -i "s|\]|   , TestLabel \"Day${day}\" TestDay${day}.tests\n    ]|"
 
 # Add the solver to the app
-sed -i "s|solve s = putStrLn (s ++ \" Not solved\")|
+sed app/Main.hs -i "s|solve s = putStrLn (s ++ \" Not solved\")|
 solve \"day8A\" = do\n
   result <- D8.a \"data/day8.txt\"\n
   putStrLn $ show $ result\n
