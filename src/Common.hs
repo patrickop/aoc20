@@ -10,3 +10,22 @@ countIf op (x:xs)
   | op x = 1 + (countIf op xs)
   | otherwise = (countIf op xs)
 countIf op [] = 0
+
+parseIntsFile :: String -> IO [Int]
+parseIntsFile name = do
+  lineList <- parseFileLines name
+  return (map (read :: String -> Int) lineList)
+
+duos :: [Int] -> [[Int]]
+duos values = [[i, j] | i <- values, j <- values, i < j]
+
+head' :: [a] -> Maybe a
+head' [] = Nothing
+head' (x:xs) = Just x
+
+addUpTo :: Int -> [Int] -> Bool
+addUpTo goal xs = (sum xs) == goal
+
+findCombosThatAddTo :: [[Int]] -> Int -> Maybe [Int]
+findCombosThatAddTo list goal = head' (filter (addUpTo goal) list)
+
