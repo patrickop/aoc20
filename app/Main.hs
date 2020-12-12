@@ -9,7 +9,9 @@ import qualified Day6 as D6
 import qualified Day7 as D7
 import qualified Day8 as D8
 import qualified Day9 as D9
+import qualified Day10 as D10
 import System.Environment
+
 
 
 solve :: String -> IO ()
@@ -66,6 +68,12 @@ solve "day9A" = do
   putStrLn $ show $ result
 solve "day9B" = do
   result <- D9.b "data/day9.txt"
+  putStrLn $ show $ result
+solve "day10A" = do
+  result <- D10.a "data/day10.txt"
+  putStrLn $ show $ result
+solve "day10B" = do
+  result <- D10.b "data/day10.txt"
   putStrLn $ show $ result
 solve s = putStrLn (s ++ " Not solved")
 
