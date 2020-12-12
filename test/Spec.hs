@@ -6,6 +6,7 @@ import qualified TestDay4
 import qualified TestDay5
 import qualified TestDay6
 import qualified TestDay7
+import qualified TestDay8
 
 import Test.HUnit
 
@@ -20,8 +21,7 @@ tests =
     , TestLabel "Day5" TestDay5.tests
     , TestLabel "Day6" TestDay6.tests
     , TestLabel "Day7" TestDay7.tests
-      --TestLabel "unit tests" unitTests
-      --, TestLabel "end to end tests" endToEndTests
+    , TestLabel "Day8" TestDay8.tests
     ]
 
 main :: IO Counts
