@@ -3,6 +3,7 @@ module Main where
 import qualified Day1 as D1
 import qualified Day10 as D10
 import qualified Day11 as D11
+import qualified Day12 as D12
 import qualified Day2 as D2
 import qualified Day3 as D3
 import qualified Day4 as D4
@@ -79,6 +80,12 @@ solve "day11A" = do
   putStrLn $ show $ result
 solve "day11B" = do
   result <- D11.b "data/day11.txt"
+  putStrLn $ show $ result
+solve "day12A" = do
+  result <- D12.a "data/day12.txt"
+  putStrLn $ show $ result
+solve "day12B" = do
+  result <- D12.b "data/day12.txt"
   putStrLn $ show $ result
 solve s = putStrLn (s ++ " Not solved")
 
