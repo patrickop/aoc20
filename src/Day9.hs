@@ -4,32 +4,38 @@ import Common
 import Data.Maybe
 
 getNumberWithPreamble :: Int -> [Int] -> Int -> Maybe ([Int], Int)
-getNumberWithPreamble preambleLength xs index 
+getNumberWithPreamble preambleLength xs index
   | index > 0
   , index < (length xs)
-  , index > preambleLength = 
-  let (start, (x:_)) = splitAt index xs
-      preamble = drop (index-preambleLength) start 
-   in Just (preamble, x)
+  , index > preambleLength =
+    let (start, (x:_)) = splitAt index xs
+        preamble = drop (index - preambleLength) start
+     in Just (preamble, x)
   | otherwise = Nothing
 
-
 isValid :: ([Int], Int) -> Bool
-isValid (preamble, number) = 
+isValid (preamble, number) =
   not $ isNothing $ findCombosThatAddTo (duos preamble) number
 
 findFirstInvalidNumber :: Int -> [Int] -> Int
 findFirstInvalidNumber preambleLength xs =
   let len = length xs
-      withPreamble = catMaybes $ map (getNumberWithPreamble preambleLength xs) [preambleLength..len]
+      withPreamble =
+        catMaybes $
+        map (getNumberWithPreamble preambleLength xs) [preambleLength .. len]
       invalidNumbers = filter (not . isValid) withPreamble
    in snd $ head invalidNumbers
 
 findContiguousRangeThatAddsTo :: Int -> [Int] -> [Int] -> [Int]
 findContiguousRangeThatAddsTo goal targetRange sourceRange
- | goal == (sum targetRange) = targetRange
- | goal < (sum targetRange) = findContiguousRangeThatAddsTo goal (tail targetRange) sourceRange
- | goal > (sum targetRange) = findContiguousRangeThatAddsTo goal (targetRange ++ [head sourceRange]) (tail sourceRange)
+  | goal == (sum targetRange) = targetRange
+  | goal < (sum targetRange) =
+    findContiguousRangeThatAddsTo goal (tail targetRange) sourceRange
+  | goal > (sum targetRange) =
+    findContiguousRangeThatAddsTo
+      goal
+      (targetRange ++ [head sourceRange])
+      (tail sourceRange)
 
 a' :: Int -> String -> IO Int
 a' preambleLength filename = do

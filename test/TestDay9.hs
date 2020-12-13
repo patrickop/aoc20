@@ -18,8 +18,4 @@ testB =
         assertEqual "Day 9 B EndToEnd failed" 62 r)
 
 tests :: Test
-tests =
-  TestList
-    [ TestLabel "testA" testA
-    , TestLabel "testB" testB
-    ]
+tests = TestList [TestLabel "testA" testA, TestLabel "testB" testB]

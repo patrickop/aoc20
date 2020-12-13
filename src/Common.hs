@@ -29,3 +29,10 @@ addUpTo goal xs = (sum xs) == goal
 findCombosThatAddTo :: [[Int]] -> Int -> Maybe [Int]
 findCombosThatAddTo list goal = head' (filter (addUpTo goal) list)
 
+takeWhileList :: ([a] -> Bool) -> [a] -> [a] -> [a]
+takeWhileList _ initial [] = initial
+takeWhileList condition initial (x:xs)
+  | not (condition newInitial) = initial
+  | otherwise = takeWhileList condition newInitial xs
+  where
+    newInitial = initial ++ [x]

@@ -3,8 +3,8 @@ module TestCommon
   ) where
 
 import Common
-import Test.HUnit
 import Data.List
+import Test.HUnit
 
 testParseLines :: Test
 testParseLines =
@@ -40,11 +40,11 @@ testDuos =
        (sort [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]])
        (sort (duos [1, 2, 3, 4])))
 
-
 tests :: Test
-tests = TestList 
-  [ TestLabel "parseLines" testParseLines
-  , TestLabel "testParseInts" testParseInts
-  , TestLabel "testDuos" testDuos
-  , TestLabel "testFindNumbersThatAddTo" testFindNumbersThatAddTo
-  ]
+tests =
+  TestList
+    [ TestLabel "parseLines" testParseLines
+    , TestLabel "testParseInts" testParseInts
+    , TestLabel "testDuos" testDuos
+    , TestLabel "testFindNumbersThatAddTo" testFindNumbersThatAddTo
+    ]
