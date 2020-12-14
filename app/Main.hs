@@ -4,6 +4,7 @@ import qualified Day1 as D1
 import qualified Day10 as D10
 import qualified Day11 as D11
 import qualified Day12 as D12
+import qualified Day13 as D13
 import qualified Day2 as D2
 import qualified Day3 as D3
 import qualified Day4 as D4
@@ -12,9 +13,7 @@ import qualified Day6 as D6
 import qualified Day7 as D7
 import qualified Day8 as D8
 import qualified Day9 as D9
-import qualified Day13 as D13
 import System.Environment
-
 
 solve :: String -> IO ()
 solve "day1A" = do

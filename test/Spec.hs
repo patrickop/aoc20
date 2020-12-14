@@ -8,11 +8,11 @@ import qualified TestDay6
 import qualified TestDay7
 import qualified TestDay8
 
-import qualified TestDay13
 import Test.HUnit
 import qualified TestDay10
 import qualified TestDay11
 import qualified TestDay12
+import qualified TestDay13
 import qualified TestDay9
 
 tests :: Test
@@ -31,7 +31,7 @@ tests =
     , TestLabel "Day10" TestDay10.tests
     , TestLabel "Day11" TestDay11.tests
     , TestLabel "Day12" TestDay12.tests
-       , TestLabel "Day13" TestDay13.tests
+    , TestLabel "Day13" TestDay13.tests
     ]
 
 main :: IO Counts
