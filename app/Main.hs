@@ -5,6 +5,7 @@ import qualified Day10 as D10
 import qualified Day11 as D11
 import qualified Day12 as D12
 import qualified Day13 as D13
+import qualified Day14 as D14
 import qualified Day2 as D2
 import qualified Day3 as D3
 import qualified Day4 as D4
@@ -93,6 +94,12 @@ solve "day13A" = do
   putStrLn $ show $ result
 solve "day13B" = do
   result <- D13.b "data/day13.txt"
+  putStrLn $ show $ result
+solve "day14A" = do
+  result <- D14.a "data/day14.txt"
+  putStrLn $ show $ result
+solve "day14B" = do
+  result <- D14.b "data/day14.txt"
   putStrLn $ show $ result
 solve s = putStrLn (s ++ " Not solved")
 

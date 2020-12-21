@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 47d56e0221da1db73f38f5383ca98f92e54477f0f5dd67d300a83403bf18029d
+-- hash: fab86ebc8bbc776e62066109416d6c4113d87013d3010bbe95d5e9869aa685b6
 
 name:           aoc20
 version:        0.1.0.0
@@ -29,6 +29,7 @@ library
       Day11
       Day12
       Day13
+      Day14
       Day2
       Day3
       Day4
@@ -78,6 +79,7 @@ test-suite aoc20-test
       TestDay11
       TestDay12
       TestDay13
+      TestDay14
       TestDay2
       TestDay3
       TestDay4
@@ -89,6 +91,7 @@ test-suite aoc20-test
       Paths_aoc20
   hs-source-dirs:
       test
+  default-extensions: BinaryLiterals
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       HUnit
