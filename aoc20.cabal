@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 63c0cb8bdbb04bacec80490100769f2d0a9b91f3b990c1f30dd7767b4f530307
+-- hash: 71d3af321386e94cce995b287a9e214523fbaf550974fbf25549c7b0d1acc642
 
 name:           aoc20
 version:        0.1.0.0
@@ -51,6 +51,7 @@ library
     , regex-pcre
     , sort
     , split
+    , unordered-containers
   default-language: Haskell2010
 
 executable solve
@@ -68,6 +69,7 @@ executable solve
     , regex-pcre
     , sort
     , split
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite aoc20-test
@@ -103,4 +105,5 @@ test-suite aoc20-test
     , regex-pcre
     , sort
     , split
+    , unordered-containers
   default-language: Haskell2010
