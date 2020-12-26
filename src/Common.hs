@@ -1,5 +1,7 @@
 module Common where
 
+import Data.List.Split
+
 parseFileLines :: String -> IO [String]
 parseFileLines name = do
   content <- readFile name
@@ -36,3 +38,6 @@ takeWhileList condition initial (x:xs)
   | otherwise = takeWhileList condition newInitial xs
   where
     newInitial = initial ++ [x]
+
+parseIntRow :: String -> [Int]
+parseIntRow = (map read) . (splitOn ",")
